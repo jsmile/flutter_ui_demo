@@ -16,14 +16,23 @@ class Home extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            demoButton(context, 'Expandable Panel Demo'),
+            demoButton(
+              context,
+              'Expandable Panel Demo',
+              ExpandablePanelDemo.routeName,
+            ),
+            demoButton(
+              context,
+              'Multi Expandable Panel Demo',
+              MultiExpandablePanelDemo.routeName,
+            ),
           ],
         ),
       ),
     );
   }
 
-  Widget demoButton(BuildContext context, String buttonName) {
+  Widget demoButton(BuildContext context, String buttonName, String routeName) {
     return Container(
       height: 20.0,
       margin: const EdgeInsets.all(20),
@@ -39,7 +48,7 @@ class Home extends StatelessWidget {
           ),
         ),
         onPressed: () {
-          Navigator.pushNamed(context, ExpandablePanelDemo.routeName);
+          Navigator.pushNamed(context, routeName);
         },
         child: Text(buttonName),
       ),

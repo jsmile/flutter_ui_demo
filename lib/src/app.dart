@@ -9,11 +9,21 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter UI Demo',
-      theme: ThemeData(),
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(
+            fontSize: 16.0,
+            color: Colors.black,
+          ),
+        ),
+      ),
       home: const Home(),
       routes: {
         Home.routeName: (context) => const Home(),
-        ExpandablePanelDemo.routeName: (context) => const ExpandablePanelDemo(),
+        ExpandablePanelDemo.routeName: (context) => ExpandablePanelDemo(),
+        MultiExpandablePanelDemo.routeName: (context) =>
+            const MultiExpandablePanelDemo(),
       },
     );
   }
