@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'src/dashboard_screen.dart';
+import 'package:flutter_ui_demo/src/app.dart';
 
 void main() {
-  runApp(const DashboardScreen());
+  runApp(const App());
 }
