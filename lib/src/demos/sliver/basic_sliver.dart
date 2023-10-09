@@ -13,7 +13,7 @@ class BasicSliver extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            title: const Text('Sliver Flixible Title'),
+            // title: const Text('Sliver Flixible Title'),  FlexibleSpaceBar 에서 대신함
             centerTitle: true, // Title 중앙 정렬
             expandedHeight: 200.0, // 최대 확장 높이
             backgroundColor: Colors.blue[200], // AppBar 배경색
@@ -24,6 +24,16 @@ class BasicSliver extends StatelessWidget {
             ],
             floating: true, // 상향 스크롤 시 AppBar 를 바로 보여줌( floating ).
             pinned: true, // 스크롤 시 AppBar 를 숨기지 않음( pinned ).
+            flexibleSpace: FlexibleSpaceBar(
+              background: Image.network(
+                'https://source.unsplash.com/random?monochromatic+dark',
+                fit: BoxFit.cover,
+              ),
+              // 이미지 고정(pin), 자동 축소( parallax )
+              collapseMode: CollapseMode.parallax,
+              title: const Text('Sliver Flixible Title'),
+              centerTitle: true, // Title 중앙 정렬
+            ),
           ),
           buildImage(),
         ],
