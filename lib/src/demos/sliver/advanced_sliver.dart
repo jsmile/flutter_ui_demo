@@ -24,6 +24,7 @@ class AdvancedSliver extends StatelessWidget {
   }
 
   Widget buildImage() {
+    // SliverGrid 의 delegate 에서 SliverChildBuilderDelegate 을 사용하여 image widget 반환
     return SliverGrid(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2, // 2개의 열
@@ -58,6 +59,7 @@ class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
     return Stack(
       fit: StackFit.expand,
       children: [
+        buildBackground(shrinkOffset),
         buildAppBar(shrinkOffset),
       ],
     );
@@ -72,14 +74,37 @@ class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
 
   @override
   bool shouldRebuild(covariant CustomSliverAppBarDelegate oldDelegate) {
-    return expandedHeight != oldDelegate.expandedHeight ||
-        pined != oldDelegate.pined;
+    // return expandedHeight != oldDelegate.expandedHeight ||
+    //     pined != oldDelegate.pined;
+    return true;
   }
 
   Widget buildAppBar(double shrinkOffset) {
-    return AppBar(
-      title: Text(title),
-      centerTitle: true,
+    return Opacity(
+      opacity: appear(shrinkOffset), // shrinkOffset 근처에서 가장 불투명
+      child: AppBar(
+        title: Text(title),
+        centerTitle: true,
+      ),
     );
+  }
+
+  double appear(double shrinkOffset) {
+    return shrinkOffset / expandedHeight;
+  }
+
+  Widget buildBackground(double shrinkOffset) {
+    return Opacity(
+      opacity: disappear(shrinkOffset), // shrinkOffset 근처에서 가장 투명
+      child: Image.network(
+        'https://source.unsplash.com/random?mono+dark',
+        fit: BoxFit.cover,
+      ),
+    );
+  }
+
+  // 스크롤 시 배경 이미지가 사라지는 비율
+  double disappear(double shrinkOffset) {
+    return 1 - shrinkOffset / expandedHeight;
   }
 }
