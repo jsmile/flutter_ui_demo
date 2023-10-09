@@ -44,12 +44,13 @@ class BasicSliver extends StatelessWidget {
   Widget buildImage() {
     return SliverToBoxAdapter(
         child: GridView.builder(
-      gridDelegate:
-          const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2, // 2개의 열
+      ),
       itemCount: 20,
       itemBuilder: (context, index) => ImageWidget(index: index),
-      primary: false,
-      shrinkWrap: true,
+      primary: false, // 스크롤이 가능하게 만듬
+      shrinkWrap: true, // 스크롤이 가능하게 만듬
     ));
   }
 }
