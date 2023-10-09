@@ -14,19 +14,36 @@ class Home extends StatelessWidget {
         title: const Text('Flutter UI Demo'),
       ),
       body: Center(
-        child: Column(
-          children: [
-            demoButton(
-              context,
-              'Expandable Panel Demo',
-              ExpandablePanelDemo.routeName,
-            ),
-            demoButton(
-              context,
-              'Multi Expandable Panel Demo',
-              MultiExpandablePanelDemo.routeName,
-            ),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              demoButton(
+                context,
+                'Expandable Panel Demo',
+                ExpandablePanelDemo.routeName,
+              ),
+              demoButton(
+                context,
+                'Multi Expandable Panel Demo',
+                MultiExpandablePanelDemo.routeName,
+              ),
+              demoButton(
+                context,
+                'Basic Sliver Demo',
+                BasicSliver.routeName,
+              ),
+              demoButton(
+                context,
+                'TabBar Sliver Demo',
+                TabBarSliver.routeName,
+              ),
+              demoButton(
+                context,
+                'Advancded Sliver Demo',
+                AdvancedSliver.routeName,
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -34,8 +51,9 @@ class Home extends StatelessWidget {
 
   Widget demoButton(BuildContext context, String buttonName, String routeName) {
     return Container(
-      height: 20.0,
-      margin: const EdgeInsets.all(20),
+      // height: 30.0,
+      margin: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       child: FilledButton.tonal(
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(Colors.blue[200]),

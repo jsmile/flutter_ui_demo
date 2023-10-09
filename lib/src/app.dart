@@ -9,6 +9,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter UI Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         textTheme: const TextTheme(
@@ -24,6 +25,9 @@ class App extends StatelessWidget {
         ExpandablePanelDemo.routeName: (context) => ExpandablePanelDemo(),
         MultiExpandablePanelDemo.routeName: (context) =>
             const MultiExpandablePanelDemo(),
+        BasicSliver.routeName: (context) => const BasicSliver(),
+        TabBarSliver.routeName: (context) => const TabBarSliver(),
+        AdvancedSliver.routeName: (context) => const AdvancedSliver(),
       },
     );
   }
