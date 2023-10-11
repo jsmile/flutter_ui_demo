@@ -59,7 +59,7 @@ class _QuickActionMenuFloatingActionButtonState
       },
       // AnimatedScale 을 이용하여 메뉴 버튼을 눌렀을 때 크기가 줄어들도록 함.
       child: AnimatedScale(
-        scale: _isPressed ? 0.8 : 1.0,
+        scale: _isPressed || widget.isOpen ? 0.8 : 1.0,
         duration: _duration,
         // Menu 버튼 전체에 BoxShadow 효과 추가
         child: Container(
@@ -95,8 +95,8 @@ class _QuickActionMenuFloatingActionButtonState
         Opacity(
           opacity: widget.isOpen ? 0.0 : 1.0, // open 이면 하위레벨을 가려라
           child: QuickActionIcon(
-            icon: const Icon(
-              Icons.close_rounded,
+            icon: Icon(
+              widget.icon,
               color: Colors.white,
               size: 28,
             ),
