@@ -42,6 +42,11 @@ class Home extends StatelessWidget {
                 'Advancded Sliver Demo',
                 AdvancedSliver.routeName,
               ),
+              demoButton(
+                context,
+                'Quick Floating Action Button Demo',
+                QuickFloatingActionButtonDemo.routeName,
+              ),
             ],
           ),
         ),
@@ -52,7 +57,7 @@ class Home extends StatelessWidget {
   Widget demoButton(BuildContext context, String buttonName, String routeName) {
     return Container(
       // height: 30.0,
-      margin: const EdgeInsets.all(10),
+      // margin: const EdgeInsets.all(10),
       padding: const EdgeInsets.all(10),
       child: FilledButton.tonal(
         style: ButtonStyle(

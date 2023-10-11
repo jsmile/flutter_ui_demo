@@ -28,6 +28,8 @@ class App extends StatelessWidget {
         BasicSliver.routeName: (context) => const BasicSliver(),
         TabBarSliver.routeName: (context) => const TabBarSliver(),
         AdvancedSliver.routeName: (context) => const AdvancedSliver(),
+        QuickFloatingActionButtonDemo.routeName: (context) =>
+            const QuickFloatingActionButtonDemo(),
       },
     );
   }
