@@ -5,3 +5,5 @@ export 'demos/sliver/basic_sliver.dart';
 export 'demos/sliver/tapbar_sliver.dart';
 export 'demos/sliver/advanced_sliver.dart';
 export 'demos/floating_action_button/quick_action_float_button/expandable_floating_action_button_demo.dart';
+export 'demos/quick_action_menu/quick_action_menu_test.dart';
+export 'demos/fab_circular_menu_button/fab_circular_menu_button_demo.dart';

@@ -30,6 +30,9 @@ class App extends StatelessWidget {
         AdvancedSliver.routeName: (context) => const AdvancedSliver(),
         QuickFloatingActionButtonDemo.routeName: (context) =>
             const QuickFloatingActionButtonDemo(),
+        QuickActionMenuTest.routeName: (context) => const QuickActionMenuTest(),
+        FabCircularMenuButtonDemo.routeName: (context) =>
+            const FabCircularMenuButtonDemo(),
       },
     );
   }
