@@ -31,7 +31,8 @@ class _QuickActionButtonState extends State<QuickActionButton> {
   // final _toalButtons = 4; // 버튼의 총 개수
 
   double degreeToRadian(double degree) {
-    return pi * degree / 180.0;
+    return pi * degree / 90.0;
+    // return pi * degree / 180.0;
   }
 
   double get _range => 90.0 - _offset; // 버튼이 펼쳐지는 범위

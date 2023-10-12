@@ -36,12 +36,14 @@ class _CheckBoxDemoState extends State<CheckBoxDemo> {
           ),
           CheckboxListTile(
             value: _tileChecked,
-            title: const Text(
+            title: Text(
               'river ?',
-              style: TextStyle(color: Colors.blue),
+              style:
+                  TextStyle(color: _tileChecked ? Colors.blue : Colors.black),
             ),
-            secondary: const Icon(Icons.beach_access,
-                color: Colors.blue), // 없으면 checkbox 만 나옴
+            // 없으면 checkbox 만 나옴
+            secondary: Icon(Icons.beach_access,
+                color: _tileChecked ? Colors.blue : Colors.black),
             controlAffinity: ListTileControlAffinity.trailing, // 오른쪽 checkbox
             activeColor: Colors.blue, // check 시 색상
             onChanged: (newValue) {
