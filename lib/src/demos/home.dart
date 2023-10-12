@@ -44,8 +44,23 @@ class Home extends StatelessWidget {
               ),
               demoButton(
                 context,
-                'Quick Floating Action Button Demo',
-                QuickFloatingActionButtonDemo.routeName,
+                'FabCircularMenuButtonDemo Demo',
+                FabCircularMenuButtonDemo.routeName,
+              ),
+              // demoButton(
+              //   context,
+              //   'Quick Floating Action Button Demo',
+              //   QuickFloatingActionButtonDemo.routeName,
+              // ),
+              // demoButton(
+              //   context,
+              //   'QuickActionMenuTest Demo',
+              //   QuickActionMenuTest.routeName,
+              // ),
+              demoButton(
+                context,
+                'CheckBox Demo',
+                CheckBoxDemo.routeName,
               ),
             ],
           ),
