@@ -57,6 +57,11 @@ class Home extends StatelessWidget {
               //   'QuickActionMenuTest Demo',
               //   QuickActionMenuTest.routeName,
               // ),
+              demoButton(
+                context,
+                'CheckBox Demo',
+                CheckBoxDemo.routeName,
+              ),
             ],
           ),
         ),

@@ -33,6 +33,7 @@ class App extends StatelessWidget {
         QuickActionMenuTest.routeName: (context) => const QuickActionMenuTest(),
         FabCircularMenuButtonDemo.routeName: (context) =>
             const FabCircularMenuButtonDemo(),
+        CheckBoxDemo.routeName: (context) => const CheckBoxDemo(),
       },
     );
   }
