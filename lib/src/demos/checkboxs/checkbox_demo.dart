@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../ansi_color.dart';
+import 'custom_checkbox_tile.dart';
 
 class CheckBoxDemo extends StatefulWidget {
   static const String routeName = '/CheckBoxDemo';
@@ -12,10 +13,22 @@ class CheckBoxDemo extends StatefulWidget {
 
 class _CheckBoxDemoState extends State<CheckBoxDemo> {
   bool _checked = false;
-  bool _tileChecked = false;
+  // final bool _isChecked = false;
 
   @override
   Widget build(BuildContext context) {
+    Color getColor(Set<MaterialState> states) {
+      const Set<MaterialState> interactiveStates = <MaterialState>{
+        MaterialState.pressed, // pressed 상태
+        MaterialState.hovered, // hover 상태
+        MaterialState.focused, // focused 상태
+      };
+      if (states.any(interactiveStates.contains)) {
+        return Colors.blue;
+      }
+      return Colors.red;
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('CheckBox List Demo'),
@@ -24,34 +37,27 @@ class _CheckBoxDemoState extends State<CheckBoxDemo> {
       body: ListView(
         padding: const EdgeInsets.all(12.0),
         children: [
-          Checkbox(
-            value: _checked,
-            activeColor: Colors.blue, // check 시 색상
-            onChanged: (newValue) {
-              debugPrint(info('### newValue: $newValue'));
-              setState(() {
-                _checked = newValue!;
-              });
-            },
-          ),
-          CheckboxListTile(
-            value: _tileChecked,
-            title: Text(
-              'river ?',
-              style:
-                  TextStyle(color: _tileChecked ? Colors.blue : Colors.black),
+          Theme(
+            data: ThemeData(
+              unselectedWidgetColor: Colors.purple, // 체크 안된 상태의 색상
             ),
-            // 없으면 checkbox 만 나옴
-            secondary: Icon(Icons.beach_access,
-                color: _tileChecked ? Colors.blue : Colors.black),
-            controlAffinity: ListTileControlAffinity.trailing, // 오른쪽 checkbox
+            child: Checkbox(
+              value: _checked,
+              activeColor: Colors.blue, // check 시 색상
+              // fillColor: MaterialStateProperty.resolveWith(getColor),
+              onChanged: (newValue) {
+                debugPrint(info('### newValue: $newValue'));
+                setState(() {
+                  _checked = newValue!;
+                });
+              },
+            ),
+          ),
+          CustomCheckBoxListTile(
+            titleText: 'River ?',
+            normalColor: Colors.blue[300]!, // 체크 안된 상태의 색상
             activeColor: Colors.blue, // check 시 색상
-            onChanged: (newValue) {
-              debugPrint(info('### newValue: $newValue'));
-              setState(() {
-                _tileChecked = newValue!;
-              });
-            },
+            // secondary: Icons.beach_access, // 없으면 checkbox 만 나옴
           ),
         ],
       ),
