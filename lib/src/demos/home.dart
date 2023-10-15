@@ -62,6 +62,11 @@ class Home extends StatelessWidget {
                 'CheckBox Demo',
                 CheckBoxDemo.routeName,
               ),
+              demoButton(
+                context,
+                'Radio Demo',
+                RadioDemo.routeName,
+              ),
             ],
           ),
         ),

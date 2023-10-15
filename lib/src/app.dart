@@ -34,6 +34,8 @@ class App extends StatelessWidget {
         FabCircularMenuButtonDemo.routeName: (context) =>
             const FabCircularMenuButtonDemo(),
         CheckBoxDemo.routeName: (context) => const CheckBoxDemo(),
+        RadioDemo.routeName: (context) => const RadioDemo(),
+        RadioButtonGroup.routeName: (context) => const RadioButtonGroup(),
       },
     );
   }
