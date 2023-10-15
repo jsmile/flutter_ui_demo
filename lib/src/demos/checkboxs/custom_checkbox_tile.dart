@@ -3,11 +3,16 @@ import 'package:flutter/material.dart';
 import '../../ansi_color.dart';
 import 'checkbox_state.dart';
 
+/// 미완의 Test 용 CheckboxListTile
+/// - 외부 groupCheckboxState 의 상태가 변경되지 않음.
 class CustomCheckboxListTile extends StatefulWidget {
   final CheckboxState checkboxState;
-  final Color normalColor;
-  final Color activeColor;
-  final IconData? secondary;
+  final Color normalColor; // 체크 안된 상태의 색상
+  final Color activeColor; // 체크 된 상태의 색상
+  final IconData? secondary; // checkbox 이외의 추가된는 아이콘
+  final CheckboxState? groupCheckboxState; // CheckboxListTile 들의 Group
+  // Group 에 등록할 CheckboxListTile 들의 State List
+  final List<CheckboxState>? checkboxStates;
 
   const CustomCheckboxListTile({
     Key? key,
@@ -15,6 +20,8 @@ class CustomCheckboxListTile extends StatefulWidget {
     required this.normalColor,
     required this.activeColor,
     this.secondary,
+    this.groupCheckboxState,
+    this.checkboxStates,
   }) : super(key: key);
 
   @override
@@ -78,8 +85,18 @@ class _CustomCheckboxListTileState extends State<CustomCheckboxListTile> {
         // fillColor: MaterialStateProperty.resolveWith(getColor), // WEB 동작
         onChanged: (newValue) {
           setState(() {
+            // 외부에 선언된 CheckboxState 의 isChecked 를 변경
             widget.checkboxState.isChecked = newValue!;
+            // 자신의 isChecked 를 변경
             _isChecked = newValue;
+            // 외부에 선언된 groupCheckboxState 변경
+            if (widget.groupCheckboxState != null &&
+                widget.checkboxStates != null) {
+              widget.groupCheckboxState!.isChecked = widget.checkboxStates!
+                  .every((checkboxState) => checkboxState.isChecked!);
+              debugPrint(warn(
+                  '### groupCheckboxState.isChecked: ${widget.groupCheckboxState!.isChecked}'));
+            }
           });
         },
       ),
