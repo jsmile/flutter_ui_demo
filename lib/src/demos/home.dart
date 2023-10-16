@@ -67,6 +67,11 @@ class Home extends StatelessWidget {
                 'Radio Demo',
                 RadioDemo.routeName,
               ),
+              demoButton(
+                context,
+                'Stateless Radio Demo',
+                StatelessRadioDemo.routeName,
+              ),
             ],
           ),
         ),

@@ -36,6 +36,7 @@ class App extends StatelessWidget {
         CheckBoxDemo.routeName: (context) => const CheckBoxDemo(),
         RadioDemo.routeName: (context) => const RadioDemo(),
         RadioButtonGroup.routeName: (context) => const RadioButtonGroup(),
+        StatelessRadioDemo.routeName: (context) => const StatelessRadioDemo(),
       },
     );
   }
